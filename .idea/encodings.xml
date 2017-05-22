@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/build/dev-server.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/build/webpack.base.conf.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/App.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/components/Hamburger/index.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/components/Levelbar/index.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/components/Navbar/index.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/components/Sidebar/index.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/router/index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/store/actions.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/store/getters.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/store/index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/store/mutations.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/activeManage/detail.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/activeManage/index.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/activeManage/page1.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/activeManage/page2.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/activeManage/page4.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/activePublish/step1.vue" charset="UTF-8" />
+  </component>
+</project>
