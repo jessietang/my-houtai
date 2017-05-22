@@ -1,6 +1,6 @@
 # my-houtai
 
-vue里面基础知识复习真整理
+vue里面基础知识复习整理
 
 > A Vue.js project
 
