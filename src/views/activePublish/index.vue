@@ -6,10 +6,7 @@
       <el-step title="分享设置" description=""></el-step>
       <el-step title="个性化设置" description=""></el-step>
     </el-steps>
-    <input type="text" v-model="name"/>
-    <input type="text" v-model="info.name"/>
-    <h2>{{newName}}</h2>
-    <input type="text" v-model="phone" :class="{'success': isSuccess, 'error': isError}" placeholder="your phone"/>
+
     <transition name="fade">
       <router-view></router-view>
     </transition>
@@ -33,15 +30,6 @@
         publish: false,
         step: 1,
         isRouter: false,
-        name: 'jessie',
-        newName: 'jessie',
-        info: {
-          name: 'cassie',
-          sex: 'female'
-        },
-        phone: '',
-        isSuccess: false,
-        isError: false,
         query: {
 
         }
@@ -101,15 +89,6 @@
       },
       handlePublish () {
         console.log('发布')
-      },
-      formatPhone (newVal, oldVal) {
-        if (/^1[\d]{10}$/.test(newVal) === false) {
-          this.isSuccess = false
-          this.isError = true
-        } else {
-          this.isSuccess = true
-          this.isError = false
-        }
       }
     },
     watch: {
@@ -118,34 +97,7 @@
       },
       publish (newVal, oldVal) {
         alert('can publish')
-      },
-      name (newVal, oldVal) {
-        var self = this
-        if (newVal !== oldVal) {
-          self.newName = newVal
-        }
-        console.log(self.query.name, self.query.type)
-      },
-      // 深度 watcher
-      info: {
-        handler (newVal, oldVal) {
-          console.log(newVal, oldVal)
-        },
-        deep: true // 使用深度watch
-      },
-      phone: 'formatPhone' // 方法名
+      }
     }
   }
 </script>
-
-<style>
-  .success {
-    border: none;
-    border: 2px solid green;
-  }
-
-  .error {
-    border: none;
-    border: 2px solid red;
-  }
-</style>

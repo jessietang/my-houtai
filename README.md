@@ -1,8 +1,15 @@
 # my-houtai
 
-vue里面基础知识复习整理
+#vue里面基础知识复习整理<br/>
+1.router用法<br/>
+2.axios的用法<br/>
+3.路由信息对象属性<br/>
+4.watch用法<br/>
+5.vuex用法<br/>
+6.导航钩子（路由跳转添加progress进度条）
 
-> A Vue.js project
+
+
 
 ## Build Setup
 

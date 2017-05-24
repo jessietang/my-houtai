@@ -5,7 +5,7 @@
     </router-link>
 
     <router-link to="/activeManage" :class="{'title-link' : $route.path == '/activeManage'}">
-      <el-menu-item index="/activeManage"><i class="el-icon-setting"></i>活动管理</el-menu-item>
+      <el-menu-item index="/activeManage"><i class="el-icon-setting"></i>router嵌套</el-menu-item>
     </router-link>
 
     <router-link to="/axiosTest" :class="{'title-link' : $route.path == '/axiosTest'}">
@@ -23,8 +23,8 @@
       </router-link>
     </el-submenu>
 
-    <router-link to="/5" :class="{'title-link' : $route.path == '/5'}">
-      <el-menu-item index="2"><i class="el-icon-setting"></i>活动管理</el-menu-item>
+    <router-link to="/watchTest" :class="{'title-link' : $route.path == '/watchTest'}">
+      <el-menu-item index="2"><i class="el-icon-setting"></i>watch的用法</el-menu-item>
     </router-link>
 
     <router-link to="/6" :class="{'title-link' : $route.path == '/6'}">

@@ -20,5 +20,11 @@
     <file url="file://$PROJECT_DIR$/src/views/activeManage/page2.vue" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/views/activeManage/page4.vue" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/views/activePublish/step1.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../vue-tour-of-heroes/src/App.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../vue-tour-of-heroes/src/components/heroDetail/heroDetail.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../vue-tour-of-heroes/src/components/heroSearch/heroSearch.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../vue-tour-of-heroes/src/main.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../vue-tour-of-heroes/src/router/index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../vue-tour-of-heroes/src/store/index.js" charset="UTF-8" />
   </component>
 </project>

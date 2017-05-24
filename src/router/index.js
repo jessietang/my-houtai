@@ -16,6 +16,7 @@ const activePublish = resolve => require(['../views/activePublish'], resolve)
 const axiosTest = resolve => require(['../views/axiosTest'], resolve)
 const queryTest = resolve => require(['../views/queryTest'], resolve)
 const paramsTest = resolve => require(['../views/paramsTest'], resolve)
+const watchTest = resolve => require(['../views/watchTest'], resolve)
 
 Vue.use(VueRouter)
 
@@ -69,6 +70,10 @@ export default new VueRouter({
     {
       path: '/paramsTest/:proId',
       component: paramsTest
+    },
+    {
+      path: '/watchTest',
+      component: watchTest
     }
   ]
 })
