@@ -3,22 +3,22 @@
     <el-row class="head">
       <el-col :span="18" style="padding: 20px 0; background-color: #33CCCC;">
         <el-col :span="8">
-          200<br/>
+          {{tableData.length}}<br/>
           <span>活动总数</span>
         </el-col>
         <el-col :span="8">
-          200<br/>
-          <span>活动总数</span>
+          {{allSignUpNum}}<br/>
+          <span>报名总数</span>
         </el-col>
         <el-col :span="8" style="border:none;">
-          200<br/>
-          <span>活动总数</span>
+          {{allAuditNum}}<br/>
+          <span>待审核</span>
         </el-col>
       </el-col>
 
       <el-col :span="5" :offset="1" style="padding: 40px 0; background-color: #3091F2;">
-        3<br/>
-        <span>查看会员</span>
+        {{allStatusIng}}<br/>
+        <span>进行中</span>
       </el-col>
     </el-row>
 
@@ -26,7 +26,7 @@
       <h3>活动列表</h3>
       <el-row type="flex" align="middle" :gutter="20" style="padding: 20px 0;">
         <el-col :span="5" style="width: 160px;text-align: center;">
-          已选择0个活动
+          已选择{{ activeNum }}个活动
         </el-col>
         <el-col :span="5" style="width: 140px;">
           <el-select v-model="currentType" placeholder="请选择活动分类">
@@ -36,97 +36,102 @@
         </el-col>
         <el-col :span="13" style="text-align: left;">
           <!--<el-button :plain="true" type="info">设置活动分类</el-button>-->
-          <el-button :plain="true" @click.native="" type="danger">删除</el-button>
-          <el-button :plain="true" @click.native="" type="info">置顶</el-button>
-          <el-button :plain="true" @click.native="" type="info">复制</el-button>
+          <el-button :plain="true" @click.native="handleRemove" type="danger">删除</el-button>
+          <el-button :plain="true" @click.native="handleMoveToTop" type="info">置顶</el-button>
         </el-col>
       </el-row>
 
-      <!--Table Events:  cell-click	当某个单元格被点击时会触发该事件 -->
-      <el-table
-        :data="tableData"
-        style="width: 100%"
-        @selection-change="handleSelectionChange">
-
-        <el-table-column
-          type="selection"
-          width="50">
-        </el-table-column>
-
-        <el-table-column
-          prop="title"
-          label="活动名称"
-          width="180">
-        </el-table-column>
-
-        <el-table-column
-          prop="type"
-          label="活动类型"
-          width="180">
-        </el-table-column>
-
-        <el-table-column
-          prop="status"
-          label="活动状态"
-          width="180">
-        </el-table-column>
-
-        <el-table-column
-          prop="readNum"
-          label="浏览数"
-          width="180">
-        </el-table-column>
-
-        <el-table-column
-          prop="signUpNum"
-          label="报名数"
-          width="180">
-        </el-table-column>
-
-        <el-table-column
-          prop="auditNum"
-          label="待审核"
-          width="180">
-        </el-table-column>
-
+      <el-table :data="tableData"  style="width: 100%" @selection-change="selectionchange">
+        <el-table-column type="selection" width="50"></el-table-column>
+        <el-table-column property="title" label="活动名称"></el-table-column>
+        <el-table-column property="type" label="活动分类" ></el-table-column>
+        <el-table-column property="status" label="活动状态"></el-table-column>
+        <el-table-column property="startTime" label="开始时间"></el-table-column>
+        <el-table-column property="endTime" label="结束时间"></el-table-column>
+        <el-table-column property="address" label="活动地点"></el-table-column>
+        <el-table-column property="signUpNum" label="报名数"></el-table-column>
+        <el-table-column property="auditNum" label="待审核"></el-table-column>
         <el-table-column inline-template label="操作" align="center" property="id">
-          <el-button type="text" size="" @click.native="goDetail">查看详情</el-button>
+          <el-button type="text" size="mini" @click.native="goDetail(row.id)">查看详情</el-button>
         </el-table-column>
-
       </el-table>
-
-      <el-row type="flex" justify="end" style="padding: 20px 0;">
-        <el-pagination
-          layout="prev, pager, next"
-          :total="1000">
-        </el-pagination>
-      </el-row>
     </el-card>
   </div>
 </template>
 
 <script>
-  import { mapState } from 'vuex'
   export default {
     name: 'activeManage',
     data () {
       return {
-        multipleSelection: [],
         currentType: '全部',
-        types: ['全部', '测试活动', '免费活动', '收费活动']
+        types: ['全部', '测试活动', '免费活动', '收费活动'],
+        activeNum: 0,
+        selectItems: []
       }
     },
     computed: {
-      ...mapState([
-        'tableData'
-      ])
+      // 活动分类筛选
+      tableData () {
+        var type = this.currentType
+        return this.$store.state.tableData.filter(data => {
+          data.address = data.place.province + data.place.city + data.place.detail
+          if (type === '全部' || type === '') {
+            return true
+          } else {
+            return data.type === type
+          }
+        })
+      },
+      allSignUpNum () {
+        var allSignUpNum = 0
+        this.tableData.forEach(item => {
+          allSignUpNum += parseInt(item.signUpNum)
+        })
+        return allSignUpNum
+      },
+      allAuditNum () {
+        var allAuditNum = 0
+        this.tableData.forEach(item => {
+          allAuditNum += parseInt(item.auditNum)
+        })
+        return allAuditNum
+      },
+      allStatusIng () {
+        var allStatusIng = 0
+        this.tableData.forEach(item => {
+          if (item.status === '进行中') {
+            allStatusIng += 1
+          }
+        })
+        return allStatusIng
+      }
     },
     methods: {
-      handleSelectionChange (val) {
-        this.multipleSelection = val
+      // 选择列表
+      selectionchange (val) {
+        var arr = []
+        val.forEach((item) => {
+          arr.push(item)
+        })
+        this.selectItems = arr
+        this.activeNum = this.selectItems.length
+        console.log(arr)
       },
-      goDetail () {
-        this.$router.push('/detail/page1')
+      // 删除选中的所有项
+      handleRemove () {
+        var self = this
+        self.$store.dispatch('handleRemove', self.selectItems)
+        self.selectItems = []
+      },
+      // 置顶
+      handleMoveToTop () {
+        var self = this
+        self.$store.dispatch('handleMoveToTop', self.selectItems)
+        this.selectItems = []
+      },
+      goDetail (id) {
+        this.$router.push('/detail/' + id)
       }
     }
 
@@ -150,8 +155,37 @@
     font-size: 16px;
   }
 
+  .cell {
+    text-align: center;
+  }
+
   .el-table th {
     text-align: center!important;
   }
+  .activeTable {
+    width: 100%;
+  }
+
+  .activeTable, .activeTable th, .activeTable td {
+    border-collapse: collapse;
+    border-color: #e0e6ed;
+  }
+  .activeTable tr th {
+    background-color: #eff2f7;
+  }
+
+  .activeTable tr th, .activeTable tr td {
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  .activeTable tr td a {
+    text-decoration: none;
+    color: #20a0ff;
+  }
+
+
 
 </style>

@@ -43,7 +43,11 @@
         })
       },
       getList () {
-        axios.get('/activity/findTop100UserPrizes', {userId: 192, dataType: 'json'}).then(res => {
+        let data = {
+          userId: 192,
+          dataType: 'json'
+        }
+        axios.get('/activity/findTop100UserPrizes', data).then(res => {
           if (res.data.code === 0) {
             let awardList = res.data.data
             this.awardList = awardList

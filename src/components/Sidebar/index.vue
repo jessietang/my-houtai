@@ -5,7 +5,7 @@
     </router-link>
 
     <router-link to="/activeManage" :class="{'title-link' : $route.path == '/activeManage'}">
-      <el-menu-item index="/activeManage"><i class="el-icon-setting"></i>router嵌套</el-menu-item>
+      <el-menu-item index="/activeManage"><i class="el-icon-setting"></i>活动查看</el-menu-item>
     </router-link>
 
     <router-link to="/axiosTest" :class="{'title-link' : $route.path == '/axiosTest'}">

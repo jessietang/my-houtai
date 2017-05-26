@@ -3,11 +3,6 @@ import VueRouter from 'vue-router'
 
 const activeManage = resolve => require(['../views/activeManage/index'], resolve)
 const detail = resolve => require(['../views/activeManage/detail'], resolve)
-const page1 = resolve => require(['../views/activeManage/page1'], resolve)
-const page2 = resolve => require(['../views/activeManage/page2'], resolve)
-const page3 = resolve => require(['../views/activeManage/page3'], resolve)
-const page4 = resolve => require(['../views/activeManage/page4'], resolve)
-const page5 = resolve => require(['../views/activeManage/page5'], resolve)
 const step1 = resolve => require(['../views/activePublish/step1'], resolve)
 const step2 = resolve => require(['../views/activePublish/step2'], resolve)
 const step3 = resolve => require(['../views/activePublish/step3'], resolve)
@@ -27,26 +22,8 @@ export default new VueRouter({
       component: activeManage
     },
     {
-      path: '/detail',
-      component: detail,
-      children: [
-        {path: '', component: page1},
-        {
-          path: 'page1',
-          component: page1,
-          children: [
-            {path: '', component: step1},
-            {path: 'step1', component: step1},
-            {path: 'step2', component: step2},
-            {path: 'step3', component: step3},
-            {path: 'step4', component: step4}
-          ]
-        },
-        {path: 'page2', component: page2},
-        {path: 'page3', component: page3},
-        {path: 'page4', component: page4},
-        {path: 'page5', component: page5}
-      ]
+      path: '/detail/:activityId',
+      component: detail
     },
     {
       path: '/activePublish',

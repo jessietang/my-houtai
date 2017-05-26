@@ -4,7 +4,7 @@
     <el-row :gutter="20" class="address">
       <el-col :span="5">
         <el-form-item prop="province">
-          <el-select v-model="form.province" placeholder="请输入省" @change="proChange">
+          <el-select v-model="form.province" placeholder="请输入省" @change="proChange" ref="province">
             <el-option
               v-for="item in provinces"
               :key="item.value"
@@ -16,7 +16,7 @@
 
       <el-col :span="5">
         <el-form-item  prop="city">
-          <el-select v-model="form.city" placeholder="请输入市" @change="cityChange" >
+          <el-select v-model="form.city" placeholder="请输入市" @change="cityChange" ref="city">
             <el-option
               v-for="item in cities"
               :key="item.value"
@@ -28,7 +28,7 @@
 
       <el-col :span="12">
         <el-form-item prop="detail">
-          <el-input placeholder="请填写详细地址" :number="true" v-model="form.detail"></el-input>
+          <el-input placeholder="请填写详细地址" :number="true" v-model="form.detail" ref="detail"></el-input>
         </el-form-item>
       </el-col>
     </el-row>
@@ -54,21 +54,18 @@
         rules: {
           province: [
             {
-              required: true,
               message: '请选择省份',
               trigger: 'change'
             }
           ],
           city: [
             {
-              required: true,
               message: '请选择城市',
               trigger: 'change'
             }
           ],
           detail: [
             {
-              required: true,
               message: '请填写详细地址',
               trigger: 'change'
             }

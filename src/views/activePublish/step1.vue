@@ -20,20 +20,6 @@
         </el-radio-group>
       </el-form-item>
 
-      <el-form-item label="活动标签" required>
-        <el-tag
-          v-for="tag in ruleForm.tags"
-          :key="tag"
-          :closable="true"
-          type="primary"
-          @close="handleClose(tag)"
-          >
-        </el-tag>
-        <el-button icon="plus" size="large" @click.native="showDialog" style="vertical-align: middle;margin: 10px;"></el-button>
-        <transition name="fade">
-          <div class="el-form-item__error" v-show="tagsValid">{{ tagsError }}</div>
-        </transition>
-      </el-form-item>
 
       <el-form-item label="活动时间" required style="width: 750px;">
         <el-col :span="5">
