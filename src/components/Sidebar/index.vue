@@ -27,6 +27,17 @@
       <el-menu-item index="2"><i class="el-icon-setting"></i>watch的用法</el-menu-item>
     </router-link>
 
+    <el-submenu index="1">
+      <template slot="title"><i class="el-icon-message"></i>组件间传值</template>
+      <router-link :to="{path: '/fatherToChild'}" :class="{'title-link' : $route.path == '/fatherToChild'}">
+        <el-menu-item index="1-1">父传子</el-menu-item>
+      </router-link>
+
+      <router-link to="/childToFather" :class="{'title-link' : $route.path == '/childToFather'}">
+        <el-menu-item index="1-2">子传父</el-menu-item>
+      </router-link>
+    </el-submenu>
+
     <router-link to="/6" :class="{'title-link' : $route.path == '/6'}">
       <el-menu-item index="3"><i class="el-icon-menu"></i>活动发布</el-menu-item>
     </router-link>

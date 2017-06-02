@@ -2,6 +2,8 @@
   <div class="nav-header">
     <el-menu class="navbar" mode="horizontal">
       <div class="hamburger-container">
+        <!--父组件向子组件传值，将要传递的值绑定到某个属性，然后到子组件里面去用props接收-->
+        <!--<Hamburger v-bind:isActive="sidebar.opened" v-bind:toggleClick="toggleSidebar"/>-->
         <Hamburger :isActive="sidebar.opened" :toggleClick="toggleSidebar"/>
       </div>
       <Levelbar/>

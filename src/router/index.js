@@ -12,11 +12,17 @@ const axiosTest = resolve => require(['../views/axiosTest'], resolve)
 const queryTest = resolve => require(['../views/queryTest'], resolve)
 const paramsTest = resolve => require(['../views/paramsTest'], resolve)
 const watchTest = resolve => require(['../views/watchTest'], resolve)
+const fatherToChild = resolve => require(['../views/fatherToChild'], resolve)
+const childToFather = resolve => require(['../views/childToFather'], resolve)
 
 Vue.use(VueRouter)
 
 export default new VueRouter({
   routes: [
+    {
+      path: '/',
+      component: activeManage
+    },
     {
       path: '/activeManage',
       component: activeManage
@@ -36,21 +42,35 @@ export default new VueRouter({
         {path: 'step4', component: step4}
       ]
     },
+    // axios的用法
     {
       path: '/axiosTest',
       component: axiosTest
     },
+    // 路由信息对象 $route.query
     {
       path: '/queryTest',
       component: queryTest
     },
+    // 路由信息对象 $route.params
     {
       path: '/paramsTest/:proId',
       component: paramsTest
     },
+    // watch的用法
     {
       path: '/watchTest',
       component: watchTest
+    },
+    // 父组件向子组件传值
+    {
+      path: '/fatherToChild',
+      component: fatherToChild
+    },
+    // 子组件向父组件传值
+    {
+      path: '/childToFather',
+      component: childToFather
     }
   ]
 })
