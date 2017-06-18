@@ -8,8 +8,8 @@
         <Navbar/>
         <div class="main-page">
           <transition name="fade">
-          <router-view></router-view>
-        </transition>
+            <router-view></router-view>
+          </transition>
         </div>
       </div>
     </main>
@@ -29,20 +29,18 @@ export default {
   },
   data () {
     return {
+
     }
   },
   computed: {
     ...mapGetters([
       'sidebar'
     ])
-  },
-  methods: {
-
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped="" type="text/css">
   * {
     margin: 0;
     padding: 0;
@@ -57,7 +55,7 @@ export default {
   }
 
   /*==toggle sidebar==*/
-  .hideSidebar .main-right {
+  /*.hideSidebar .main-right {
     padding-left: 40px;
   }
 
@@ -67,9 +65,10 @@ export default {
 
   .hideSidebar .main-left .sidebar-container {
     transform: translate(132px, 0);
-  }/*==toggle sidebar==*/
+  }*//*==toggle sidebar==*/
 
-  /*.hideSidebar {
+  /*在vue2.0中使用sass, 参考有道云笔记：http://note.youdao.com/noteshare?id=1a35ec5eab2afcc0fa005281d4890efd*/
+  .hideSidebar {
     .main-right {
       padding-left: 40px;
     }
@@ -80,7 +79,7 @@ export default {
         transform: translate(132px, 0);
       }
     }
-  }*/
+  }
 
   .main-left {
     position: fixed;

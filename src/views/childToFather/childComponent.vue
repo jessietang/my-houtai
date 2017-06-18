@@ -2,7 +2,7 @@
   <div class="child">
     <h3>----------------这里是子组件----------------</h3>
     <div class="box">
-      <input type="text" v-model="msg" @change="onInput"/>
+      <input type="text" v-model="msg" @keyup="onInput"/>
     </div>
   </div>
 </template>

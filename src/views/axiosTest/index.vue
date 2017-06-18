@@ -29,10 +29,6 @@
       this.getList()
       console.log('created')
     },
-    ready () {
-      this.renderList()
-      console.log('ready')
-    },
     methods: {
       getRest () {
         axios.post('/coupon/countRecommendedDownloadRecord', {}).then(res => {
@@ -53,6 +49,7 @@
             this.awardList = awardList
           }
         })
+        this.renderList()
       },
       renderList () { // 这个方法没调用到，记得再看看！！！
         let awardList = $('.awardList')

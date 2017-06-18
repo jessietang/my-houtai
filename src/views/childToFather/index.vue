@@ -21,7 +21,7 @@
     },
     methods: {
       receiveMessage (text) {
-        alert('change')
+        // alert('change')
         this.childMsg = '监听到子组件值改变了：' + text
       }
     }

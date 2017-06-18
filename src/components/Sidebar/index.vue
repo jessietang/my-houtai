@@ -38,8 +38,8 @@
       </router-link>
     </el-submenu>
 
-    <router-link to="/6" :class="{'title-link' : $route.path == '/6'}">
-      <el-menu-item index="3"><i class="el-icon-menu"></i>活动发布</el-menu-item>
+    <router-link to="/formValidate" :class="{'title-link' : $route.path == '/formValidate'}">
+      <el-menu-item index="3"><i class="el-icon-menu"></i>vue表单验证</el-menu-item>
     </router-link>
 
     <router-link to="/7" :class="{'title-link' : $route.path == '/7'}">
