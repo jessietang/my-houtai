@@ -43,8 +43,7 @@
           userId: 192,
           dataType: 'json'
         }
-		// 发get请求，这里要注意传参的方式
-        axios.get('/activity/findTop100UserPrizes', params: {data}).then(res => {
+        axios.get('/activity/findTop100UserPrizes', {params: data}).then(res => {
           if (res.data.code === 0) {
             let awardList = res.data.data
             this.awardList = awardList
